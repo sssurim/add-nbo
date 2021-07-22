@@ -2,14 +2,9 @@
 
 all: add-nbo
 
-add-nbo : add-nbo.o main.o
-	g++ -o add-nbo add-nbo.o main.o
-
-main.o : add-nbo.h main.cpp
-
-add-nbo. : add-nbo.h add-nbo.cpp
+add-nbo :
+	g++ -o add-nbo add-nbo.cpp
 
 clean:
-	rm -f add-nbo
-	rm -f *.o
+	rm add-nbo *.bin
 
