@@ -6,26 +6,26 @@
 
 int main(int argc, char *argv[]){
 
-    FILE *fp1;
-    FILE *fp2;
+    FILE *fp;
+
     uint32_t n, m, sum;
 
-    fp1 = fopen(argv[1],"rb");
-    fread(&n, sizeof(int), 1, fp1);
-    fclose(fp1);
+    fp = fopen(argv[1],"rb");
+    fread(&n, sizeof(int), 1, fp);
+    fclose(fp);
 
     n = ntohl(n);
-    printf("%04x",n);
 
-    fp2 = fopen(argv[2],"rb");
-    fread(&m, sizeof(int), 1, fp2);
-    fclose(fp2);
+    fp = fopen(argv[2],"rb");
+    fread(&m, sizeof(int), 1, fp);
+    
+    fclose(fp);
 
     m = ntohl(m);
 
     sum = n + m;
 
-    printf("%d(%04x) + %d(%04x) = %d(%04x)\n",n,n,m,m,sum,sum);
+    printf("%d(0X%x) + %d(0x%x) = %d(0x%x)\n",n,n,m,m,sum,sum);
 
     return 0;
 }
