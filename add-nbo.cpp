@@ -20,10 +20,9 @@ int main(int argc, char *argv[]){
     fread(&m, sizeof(int), 1, fp2);
     fclose(fp2);
 
-
     m = ntohl(m);
 
-    printf("%d(%04x) + %d(%04x) = %d(%04x)\n",n,n,m,m,n+m,n+m);
+    printf("%d(0x%x) + %d(0x%x) = %d(0x%x)\n",n,n,m,m,n+m,n+m);
 
     return 0;
 }
