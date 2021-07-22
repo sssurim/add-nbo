@@ -3,9 +3,8 @@
 #include <stdio.h>
 #include <netinet/in.h>
 #include <stdlib.h>
-#include "add-nbo.h"
 
-int add-nbo(char *a, char *b){
+int main(int argc, char** argv[]){
 
     FILE *fp1;
     FILE *fp2;
@@ -13,7 +12,7 @@ int add-nbo(char *a, char *b){
     uint32_t n;
     uint32_t m;
 
-    fp1 = fopen(a,"rb");
+    fp1 = fopen(argv[1],"rb");
     fread(&buf_t, sizeof(int), 1, fp1);
     fclose(fp1);
 
@@ -21,7 +20,7 @@ int add-nbo(char *a, char *b){
     //printf("%04x\n",n);
     //printf("%d\n",n);
 
-    fp2 = fopen(b,"rb");
+    fp2 = fopen(argv[2],"rb");
     fread(&buf_h, sizeof(int), 1, fp2);
 
     fclose(fp2);
@@ -38,5 +37,6 @@ int add-nbo(char *a, char *b){
 	uint32_t sum = n+m;
     printf("%d(%04x) + %d(%04x) = %d(%04x)\n",n,n,m,m,sum,sum);
 
+    return 0;
 }
 
